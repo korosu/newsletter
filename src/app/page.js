@@ -1,15 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { redirect } from "next/dist/server/api-utils";
 import { useState } from "react";
 
 export default function Home() {
   const [inputBox, setInputBox] = useState("");
+  const [error, setError] = useState(false);
   const handleInputChange = (event) => {
     setInputBox(event.target.value);
   };
-  function hello() {
-    alert(inputBox);
+
+  const validateEmail = () => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (regex.test(inputBox)) {
+      res.redirect("/complete");
+    } else {
+      setError(true);
+    }
+  };
+
+  function resetStatuse() {
+    console.log("hello");
+    setError(false);
   }
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl justify-items-center bg-white sm:rounded-3xl sm:p-8 gap-12">
@@ -49,17 +62,28 @@ export default function Home() {
             </li>
           </ul>
           <div className="max-w-full">
-            <p className="text-xs">Email address</p>
+            <div className="flex">
+              <p className="text-xs mr-auto">Email address</p>
+              <p className={error ? "text-xs tomato-color" : "hidden"}>
+                Valid email required
+              </p>
+            </div>
             <input
-              className="w-full h-12 p-2 rounded-md border-2 border-gray-100"
+              className={
+                error
+                  ? "tomato transition w-full h-12 p-2 rounded-md border-2 border-gray-100"
+                  : "transition w-full h-12 p-2 rounded-md border-2 border-gray-100"
+              }
               placeholder="email@company.com"
               onBlur={handleInputChange}
+              onFocus={resetStatuse}
+              required
             ></input>
           </div>
           <button
-            className="w-full h-12 bg-slate-400 rounded-md"
+            className="transition hover:bg-slate-500 w-full h-12 bg-slate-400 rounded-md"
             type="button"
-            onClick={hello}
+            onClick={validateEmail}
           >
             Subscribe to monthly newsletter
           </button>
