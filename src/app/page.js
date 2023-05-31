@@ -16,7 +16,7 @@ export default function Home() {
   const validateEmail = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (regex.test(inputBox)) {
-      router.push("/complete");
+      router.push("/complete?email=" + inputBox);
     } else {
       setError(true);
     }
