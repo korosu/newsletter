@@ -12,7 +12,7 @@ export default function complete() {
         A confirmation email has been sent to ash@loremcompany.com. Please open
         it and click the button inside to confirm your subscription
       </p>
-      <button className="self-center w-96 fixed bottom-10 text-slate-50 bg-slate-700 hover:bg-slate-600 h-12 rounded-md">
+      <button className="self-center w-64 fixed bottom-10 text-slate-50 bg-slate-700 hover:bg-slate-600 h-12 rounded-md">
         Dismiss message
       </button>
     </div>
