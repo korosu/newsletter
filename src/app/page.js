@@ -14,7 +14,7 @@ export default function Home() {
   const validateEmail = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (regex.test(inputBox)) {
-      res.redirect("/complete");
+      redirect("/complete");
     } else {
       setError(true);
     }
