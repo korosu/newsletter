@@ -1,12 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { redirect } from "next/dist/server/api-utils";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {
   const [inputBox, setInputBox] = useState("");
   const [error, setError] = useState(false);
+  const router = useRouter();
+
   const handleInputChange = (event) => {
     setInputBox(event.target.value);
   };
@@ -14,7 +16,7 @@ export default function Home() {
   const validateEmail = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (regex.test(inputBox)) {
-      redirect("/complete");
+      router.push("/complete");
     } else {
       setError(true);
     }
