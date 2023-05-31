@@ -1,19 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-function hello() {
-  alert("hello");
-}
+
+import { useState } from "react";
 
 export default function Home() {
+  const [inputBox, setInputBox] = useState("");
+  const handleInputChange = (event) => {
+    setInputBox(event.target.value);
+  };
+  function hello() {
+    alert(inputBox);
+  }
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl justify-items-center bg-white rounded-3xl sm:p-8 gap-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl justify-items-center bg-white sm:rounded-3xl sm:p-8 gap-12">
       <img
         className="block sm:hidden w-full"
         src="assets/images/illustration-sign-up-mobile.svg"
         alt="SVG Image"
       />
       <div>
-        <form className="flex flex-col h-full justify-between gap-4 p-6 sm:p-0">
+        <form className="flex flex-col h-full justify-center gap-6 p-6 sm:p-0">
           <h1 className="text-4xl font-bold">Stay updated!</h1>
           <p>Join 60,000+ product managers receiving monthly updates on: </p>
           <ul>
@@ -42,12 +48,14 @@ export default function Home() {
               And much more!
             </li>
           </ul>
-          <p className="emailp">Email address</p>
-          <input
-            className="h-12 p-2 rounded-md border-2 border-gray-100"
-            type="email"
-            placeholder="email@company.com"
-          ></input>
+          <div className="max-w-full">
+            <p className="text-xs">Email address</p>
+            <input
+              className="w-full h-12 p-2 rounded-md border-2 border-gray-100"
+              placeholder="email@company.com"
+              onBlur={handleInputChange}
+            ></input>
+          </div>
           <button
             className="w-full h-12 bg-slate-400 rounded-md"
             type="button"
