@@ -13,7 +13,7 @@ export default function Home() {
     setInputBox(event.target.value);
   };
 
-  const validateEmail = () => {
+  const validateEmail = (inputBox) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (inputBox == "") {
       setError("Email is required");
@@ -36,8 +36,8 @@ export default function Home() {
         src="assets/images/illustration-sign-up-mobile.svg"
         alt="SVG Image"
       />
-      <div>
-        <form className="flex flex-col h-full justify-center gap-6 p-6 sm:p-0">
+      <form>
+        <div className="flex flex-col h-full justify-center gap-6 p-6 sm:p-0">
           <h1 className="text-4xl font-bold">Stay updated!</h1>
           <p>Join 60,000+ product managers receiving monthly updates on: </p>
           <ul>
@@ -82,18 +82,28 @@ export default function Home() {
               placeholder="email@company.com"
               onBlur={handleInputChange}
               onFocus={resetStatuse}
+              onKeyDown={(e) => {
+                if (e.key == "Enter") {
+                  e.preventDefault();
+                  const value = e.target.value;
+                  setInputBox(value);
+                  console.log(value);
+                  console.log(inputBox);
+                  validateEmail(e.target.value);
+                }
+              }}
               required
             ></input>
           </div>
           <button
             className=" hover:shadow-xl hover:text-red-50 hover:shadow-red-500/50 transition hover:bg-gradient-to-r from-orange-600 via-red-500 to-orange-600 w-full h-12 bg-slate-400 rounded-md"
             type="button"
-            onClick={validateEmail}
+            onClick={() => validateEmail(inputBox)}
           >
             Subscribe to monthly newsletter
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
       <div className="right-box">
         <img
           className="hidden sm:block"

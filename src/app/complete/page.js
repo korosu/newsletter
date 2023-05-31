@@ -10,6 +10,7 @@ export default function Complete() {
   function goHome() {
     router.push("/");
   }
+
   return (
     <div className="flex flex-col p-10 w-screen  bg-slate-100 h-full sm:h-auto gap-6 sm:max-w-xl sm:m-32 sm:rounded-3xl">
       <img
