@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 export default function complete() {
   return (
-    <div className="flex flex-col p-10 w-full max-w-full bg-slate-100 h-screen gap-6">
+    <div className="flex flex-col p-10 w-full max-w-full bg-slate-100 h-full gap-6">
       <img
         src="assets/images/icon-success.svg"
         alt="svg image"
-        className="w-10"
+        className="w-16"
       />
       <h1 className=" text-5xl font-bold">Thanks for subscribing!</h1>
       <p>
