@@ -19,3 +19,6 @@ body {
 .nav {
   width: 50vh;
 }
+* {
+  font-family: "Roboto", sans-serif;
+}

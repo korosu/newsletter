@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [inputBox, setInputBox] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const handleInputChange = (event) => {
@@ -15,15 +15,18 @@ export default function Home() {
 
   const validateEmail = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (inputBox == "") {
+      setError("Email is required");
+      return;
+    }
     if (regex.test(inputBox)) {
       router.push("/complete?email=" + inputBox);
     } else {
-      setError(true);
+      setError("Valid email required");
     }
   };
 
   function resetStatuse() {
-    console.log("hello");
     setError(false);
   }
   return (
@@ -67,7 +70,7 @@ export default function Home() {
             <div className="flex">
               <p className="text-xs mr-auto">Email address</p>
               <p className={error ? "text-xs tomato-color" : "hidden"}>
-                Valid email required
+                {error}
               </p>
             </div>
             <input
@@ -83,7 +86,7 @@ export default function Home() {
             ></input>
           </div>
           <button
-            className="transition hover:bg-slate-500 w-full h-12 bg-slate-400 rounded-md"
+            className=" hover:shadow-xl hover:text-red-50 hover:shadow-red-500/50 transition hover:bg-gradient-to-r from-orange-600 via-red-500 to-orange-600 w-full h-12 bg-slate-400 rounded-md"
             type="button"
             onClick={validateEmail}
           >

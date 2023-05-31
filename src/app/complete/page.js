@@ -13,12 +13,12 @@ export default function Complete() {
         alt="svg image"
         className="w-16"
       />
-      <h1 className=" text-5xl font-bold">Thanks for subscriting!</h1>
+      <h1 className=" text-5xl font-bold">Thanks for subscribing!</h1>
       <p>
         A confirmation email has been sent to {email}. Please open it and click
         the button inside to confirm your subscription
       </p>
-      <button className="self-center w-64 mt-auto bottom-10 text-slate-50 bg-slate-700 hover:bg-slate-600 h-12 rounded-md">
+      <button className="hover:shadow-xl hover:text-red-50 hover:shadow-red-500/50 transition hover:bg-gradient-to-r from-orange-600 via-red-500 to-orange-600 self-center w-64 mt-auto bottom-10 text-slate-50 bg-slate-700 hover:bg-slate-600 h-12 rounded-md">
         Dismiss message
       </button>
     </div>
