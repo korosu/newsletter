@@ -15,3 +15,10 @@ body {
 .tomato-color {
   color: hsl(4, 100%, 67%);
 }
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

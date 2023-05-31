@@ -13,8 +13,8 @@ export default function complete() {
         it and click the button inside to confirm your subscription
       </p>
       <button
-        className="mt-auto mr-auto ml-auto text-slate-50 bg-slate-700 w-96 hover:bg-slate-600 h-12 rounded-md
-         "
+        // className="mt-auto mr-auto ml-auto text-slate-50 bg-slate-700 w-96 hover:bg-slate-600 h-12 rounded-md"
+        className="nav"
       >
         Dismiss message
       </button>
